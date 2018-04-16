@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	
+    <title>{% block titre %}Titre par défaut{% endblock %}</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-0">
+		    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                {% if session['user'] %}
+                      <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                          <a class="btn btn-lg m-0 p-2 btn-dark btn-menu" href="/admin/">RZ STATUS ADMIN</a>
+                        </li>
+
+                      </ul>
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="btn btn-dark btn-menu offright" href="/admin/logout/"><i class="fa fa-power-off p-0 fa-2x m-0 d-block"></i></a>
+                        </li>
+                      </ul>
+                {% else %}
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                          <a class="btn btn-lg m-0 p-2 btn-dark btn-menu" href="/">RZ STATUS</a>
+                        </li>
+                    </ul>
+
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="btn btn-lg m-0 p-2 btn-dark btn-menu" href="/login/">Connexion</a>
+                        </li>
+
+                      </ul>
+                {% endif %}
+		    </div>
+		  </nav>
+    {% block body %}
+		
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
+

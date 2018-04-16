@@ -1,0 +1,85 @@
+.btn-menu
+{
+  background: #343a40;
+  color: white;
+  border-radius: 0;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.btn-menu:hover
+{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10%;
+  color: white;
+  border: none;
+}
+
+.maxleft
+{
+  border-left: 1px solid #151515;
+}
+
+.maxright
+{
+  border-right: 1px solid #151515;
+}
+
+.offright:hover
+{
+  background-color: #151515;
+  color: red;
+}
+
+.suppress
+{
+  color: red;
+}
+
+
+.modif {
+ color: blue; }
+
+
+.offright
+{
+  border: hidden;
+  padding-top: 13px;
+}
+
+.border-carsite
+{
+  border-radius: 20px;
+}
+
+li:hover + li a
+{
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cercle {
+  display: inline-block;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px; }
+
+.cercle-rouge {
+  background-color: rgba(200, 0, 0, 0.4); }
+
+.cercle-rouge-allume {
+  background-color: #dc0000;
+  box-shadow: 0 0 5px 1px white, 0 0 7px 6px red; }
+
+.cercle-orange {
+  background-color: rgba(255, 140, 0, 0.4); }
+
+.cercle-orange-allume {
+  background-color: darkorange;
+  box-shadow: 0 0 5px 1px white, 0 0 7px 6px #ff9100; }
+
+.cercle-green {
+  background-color: rgba(0, 100, 0, 0.4); }
+
+.cercle-green-allume {
+  background-color: #32f000;
+  box-shadow: 0 0 5px 1px white, 0 0 7px 6px chartreuse; }

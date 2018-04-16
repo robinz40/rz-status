@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    index
+{% endblock %}
+
+{% block body %}
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3 text-center">Liste des sites</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="p-2" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8 p-0">
+              <h2 class="border border-dark m-0 text-center p-1">URL</h2>
+            </div>
+            <div class="col-md-2 p-0">
+              <h2 class="border border-dark m-0 text-center p-1">STATUT</h2>
+            </div>
+            <div class="col-md-2 p-0">
+              <h2 class="border border-dark m-0 text-center p-1">CODE</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% if rows is defined %}
+    	{% for url in rows %}
+  <div class="py-2">
+    <div class="container border border-dark border-carsite p-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="m-0">{{ url.1 }}</h2>
+            </div>
+          <div class="col-md-2">
+              <h2 class="m-0 text-center">
+                  {% if tab[loop.index0] == 200 %}
+                      <span class="cercle cercle-green cercle-green-allume mx-1" ></span>
+                      <span class="cercle cercle-rouge mx-1"></span>
+                  {% else %}
+                      <span class="cercle cercle-green mx-1" ></span>
+                      <span class="cercle cercle-rouge cercle-rouge-allume mx-1"></span>
+                  {% endif %}
+              </h2>
+            </div>
+            <div class="col-md-2">
+              <h2 class="m-0 text-center">
+                  {% if tab[loop.index0] == 200 %}
+				    			{{ tab[loop.index0] }}
+				    		{% else %}
+				    			{{ tab[loop.index0] }}
+				    		{% endif %}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

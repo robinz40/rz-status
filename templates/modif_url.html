@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    Modification url
+{% endblock %}
+
+{% block body %}
+
+<div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3 text-center">Modfication d'url</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" >
+
+            <form action="" method="POST">
+                <fieldset>
+                  <h1 class="text-center" style="margin-top: 50px;">Nouvel URL</h1>
+                  <div class="py-0">
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <input name="urlinput" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                    <div class="form-group form-row justify-content-center py-2">
+                        <button type="submit" class="btn btn-success mx-auto add_form_instru btn-lg" >Valider</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+

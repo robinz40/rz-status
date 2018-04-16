@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+
+{% block titre %}
+    index admin
+{% endblock %}
+
+{% block body %}
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3 text-center">Liste des sites</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 flex-column d-flex align-items-center">
+          <a class="btn btn-outline-success btn-lg" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fa fa-plus"></i> Ajouter un site </a>
+            <div class="collapse p-1 py-2" id="collapseExample">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <form class="form-inline" method="POST">
+                      <div class="card card-body">
+                        <div class="container">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label for="sel1" class="col-sm-12 col-form-label">URL du site :</label>
+                                    <input name="urlinput" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group form-row justify-content-center py-2">
+                                <button type="submit" class="btn btn-success mx-auto add_form_instru">Ajouter</button>
+                            </div>
+                        </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="p-2" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6 p-0">
+              <h2 class="border border-dark m-0 text-center p-1">URL</h2>
+            </div>
+            <div class="col-md-2 p-0">
+              <h2 class="border border-dark m-0 text-center p-1">STATUT</h2>
+            </div>
+            <div class="col-md-2 p-0">
+              <h2 class="border border-dark m-0 text-center p-1">CODE</h2>
+            </div>
+            <div class="col-md-2
+ p-0">
+              <h2 class="border border-dark m-0 text-center p-1">TOOLS</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% if rows is defined %}
+    	{% for url in rows %}
+  <div class="py-2">
+    <div class="container border border-dark border-carsite p-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 class="m-0">{{ url.1 }}</h2>
+            </div>
+          <div class="col-md-2">
+              <h2 class="m-0 text-center">
+                  {% if tab[loop.index0] == 200 %}
+                      <span class="cercle cercle-green cercle-green-allume mx-1" ></span>
+                      <span class="cercle cercle-rouge mx-1"></span>
+                  {% else %}
+                      <span class="cercle cercle-green mx-1" ></span>
+                      <span class="cercle cercle-rouge cercle-rouge-allume mx-1"></span>
+                  {% endif %}
+              </h2>
+            </div>
+            <div class="col-md-2">
+              <h2 class="m-0 text-center">
+                  {% if tab[loop.index0] == 200 %}
+				    			{{ tab[loop.index0] }}
+				    		{% else %}
+				    			{{ tab[loop.index0] }}
+				    		{% endif %}
+              </h2>
+            </div>
+            <div class="col-md-2">
+              <div class="row">
+                <div class="col-md-6">
+                  <a class="btn" href="{{url_for('modifier_url', id=url.0)}}">
+                    <i class="fa fa-wrench fa-2x modif"></i>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                  <a class="btn" href="{{url_for('supprimer_url', id=url.0)}}">
+                    <i class="fa fa-times-circle fa-2x suppress"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}
